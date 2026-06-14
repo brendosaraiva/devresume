@@ -3,3 +3,4 @@ tmp/
 temp/
 cache/
 resumeapp/migrations
+.idea
