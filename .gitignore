@@ -1,0 +1,5 @@
+devresume/settings.py
+tmp/
+temp/
+cache/
+resumeapp/migrations
