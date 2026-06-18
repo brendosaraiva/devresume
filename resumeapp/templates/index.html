@@ -1,10 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Olá mundo!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brendo Saraiva — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="static/css/style.css" />
 </head>
 <body>
-    <h1>Olá mundo, sou um dev iniciante!</h1>
+
+  <header>
+    <div class="header-inner">
+      <div class="profile-photo">
+        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <rect width="80" height="80" fill="#2a2a2a" rx="40" />
+          <circle cx="40" cy="30" r="16" fill="#555" />
+          <ellipse cx="40" cy="72" rx="28" ry="20" fill="#555" />
+        </svg>
+      </div>
+      <nav>
+        <a href="#person-data" class="active">PERSON DATA</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="#courses">COURSES</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#education">EDUCATION</a>
+        <a href="#documents">DOCUMENTS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="person-data">
+      <h2 class="section-title">Person data</h2>
+      <div class="card">
+        <div class="person-grid">
+          <div class="field">
+            <label>Fullname</label>
+            <input type="text" />
+          </div>
+          <div class="field">
+            <label>E-mail</label>
+            <input type="email" />
+          </div>
+          <div class="field">
+            <label>Social media</label>
+            <input type="text" />
+          </div>
+          <div class="field">
+            <label>Birthday</label>
+            <input type="text" />
+          </div>
+          <div class="field">
+            <label>Telephone</label>
+            <input type="tel" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-title">Experiences</h2>
+      <div class="card">
+        <p class="entry-header">
+          Company name <span>— 21/05/2026 to 25/05/2026</span>
+        </p>
+        <p class="entry-body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta felis mattis. Fusce tincidunt turpis tortor. Sed interdum augue ut elementum auctor. In euismod, ligula vel efficitur posuere, augue ex interdum lorem, quis finibus nunc turpis a dolor. Nullam vulputate est id eros dignissim sagittis.
+        </p>
+        <div class="more-btn"><button>More</button></div>
+      </div>
+    </section>
+
+    <section id="courses">
+      <h2 class="section-title">Courses</h2>
+
+      <div class="course-card">
+        <p class="course-name">Course name 1 <span>— 21/05/2026</span></p>
+        <div class="course-meta">
+          <span><strong>Duration:</strong> 6.0 h</span>
+          <span><strong>Situation:</strong> concluded</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <p class="course-name">Course name 2 <span>— 23/05/2025</span></p>
+        <div class="course-meta">
+          <span><strong>Duration:</strong> 6.0 h</span>
+          <span><strong>Situation:</strong> concluded</span>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <p class="course-name">Course name 3 <span>— 21/04/2024</span></p>
+        <div class="course-meta">
+          <span><strong>Duration:</strong> 50 h</span>
+          <span><strong>Situation:</strong> concluded</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-logo">
+            <svg viewBox="0 0 98 96" fill="white" opacity="0.85" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/>
+            </svg>
+          </div>
+          <p class="project-name">Project name 1</p>
+          <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt turpis tortor. Sed interdum augue ut elementum auctor porttitor.</p>
+          <div class="more-btn"><button>More</button></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3"/>
+              <circle cx="50" cy="50" r="25" fill="rgba(255,255,255,0.08)"/>
+              <path d="M35 50 L50 35 L65 50 L50 65 Z" fill="rgba(255,255,255,0.4)"/>
+            </svg>
+          </div>
+          <p class="project-name">Project name 2</p>
+          <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt turpis tortor. Sed interdum augue ut elementum auctor porttitor.</p>
+          <div class="more-btn"><button>More</button></div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3"/>
+              <circle cx="50" cy="50" r="25" fill="rgba(255,255,255,0.08)"/>
+              <path d="M35 50 L50 35 L65 50 L50 65 Z" fill="rgba(255,255,255,0.4)"/>
+            </svg>
+          </div>
+          <p class="project-name">Project name 3</p>
+          <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt turpis tortor. Sed interdum augue ut elementum auctor porttitor.</p>
+          <div class="more-btn"><button>More</button></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="card">
+        <p class="entry-header">
+          University name <span>— 21/05/2026 to 25/01/2026</span>
+        </p>
+        <p class="entry-body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta felis mattis. Fusce tincidunt turpis tortor. Sed interdum augue ut elementum auctor. In euismod, ligula vel efficitur posuere, augue ex interdum lorem, quis finibus nunc turpis a dolor. Nullam vulputate est id eros dignissim sagittis.
+        </p>
+        <div class="more-btn"><button>More</button></div>
+      </div>
+    </section>
+
+    <section id="documents">
+      <h2 class="section-title">Documents</h2>
+      <div class="card">
+        <p class="entry-body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta felis mattis. Fusce tincidunt turpis tortor. Sed interdum augue ut elementum auctor. In euismod, ligula vel efficitur posuere, augue ex interdum lorem, quis finibus nunc turpis a dolor. Nullam vulputate est id eros dignissim sagittis.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 | Brendo Saraiva
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
 </body>
 </html>
