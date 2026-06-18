@@ -18,9 +18,6 @@ class PersonData(models.Model):
             MaxValueValidator(current_year)
         ]
     )
-    street = models.CharField("Street", max_length=30, blank=True, null=True)
-    number = models.IntegerField("Number", blank=True, null=True)
-    neighborhood = models.CharField("Neighborhood", blank=True, null=True)
 
     class Meta:
         verbose_name = "Person data"
