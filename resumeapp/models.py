@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import date
 from django.core.validators import MinValueValidator, MaxValueValidator
+from stdimage import StdImageField
 
 
 def current_year():
@@ -8,6 +9,16 @@ def current_year():
 
 
 class PersonData(models.Model):
+    image = StdImageField(
+        "Photo",
+        upload_to="img",
+        variations={
+            "thumbnail": (250, 250)
+        },
+        delete_orphans=True,
+        blank=True
+
+    )
     firstname = models.CharField("Name", max_length=15)
     lastname = models.CharField("Last name", max_length=20)
     birth_day = models.DateTimeField(
