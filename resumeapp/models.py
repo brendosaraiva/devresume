@@ -21,7 +21,7 @@ class PersonData(models.Model):
     )
     firstname = models.CharField("Name", max_length=15)
     lastname = models.CharField("Last name", max_length=20)
-    birth_day = models.DateTimeField(
+    birthday = models.DateTimeField(
         "Birthday",
         default=current_year,
         validators=[
@@ -89,7 +89,7 @@ class Experience(models.Model):
             MaxValueValidator(current_year)
         ]
     )
-    end_data = models.DateTimeField(
+    end_date = models.DateTimeField(
         "End date",
         default=current_year,
         validators=[
@@ -119,7 +119,7 @@ class Education(models.Model):
             MaxValueValidator(current_year)
         ]
     )
-    end_data = models.DateTimeField(
+    end_date = models.DateTimeField(
         "End date",
         default=current_year,
         validators=[
@@ -152,7 +152,7 @@ class Project(models.Model):
         return self.project
 
 
-class Technology:
+class Technology(models.Model):
     TECHNOLOGY_CHOICES = [
         # Linguagens de programação
         ("python", "Python"),
