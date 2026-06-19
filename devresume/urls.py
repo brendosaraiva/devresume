@@ -26,3 +26,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("resumeapp.urls"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+admin.site.site_header = "Meu Painel Administrativo"
+admin.site.site_title = "Administração do Meu Curriculo"
+admin.site.index_title = "Bem-vindo ao Painel de Controle"

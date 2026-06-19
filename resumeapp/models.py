@@ -21,12 +21,12 @@ class PersonData(models.Model):
     )
     firstname = models.CharField("Name", max_length=15)
     lastname = models.CharField("Last name", max_length=20)
-    birthday = models.DateTimeField(
+    birthday = models.DateField(
         "Birthday",
         default=current_year,
         validators=[
-            MinValueValidator(1900),
-            MaxValueValidator(current_year)
+            MinValueValidator(date(1990, 1, 1)),
+            MaxValueValidator(date.today)
         ]
     )
 
@@ -38,8 +38,9 @@ class PersonData(models.Model):
         return self.firstname
 
 
+# Criar uma nova tabela para redes sociais e telefone (1FN)
 class Contact(models.Model):
-    person_data = models.ManyToManyField(PersonData)
+    person_data = models.ForeignKey(PersonData, on_delete=models.CASCADE)
     SOCIAL_MEDIA_CHOICES = [
         ('facebook', 'fa-facebook'),
         ('twitter', 'fa-twitter'),
@@ -50,7 +51,8 @@ class Contact(models.Model):
     email = models.CharField("E-mail", max_length=50, blank=True, null=True)
     ddi = models.CharField("DDI", max_length=3, blank=True, null=True)
     cellphone = models.CharField("Number", max_length=13, blank=True, null=True)
-    social_media = models.CharField(
+    link = models.CharField("Link rede social", max_length=60, blank=True, null=True)
+    social_media_icon = models.CharField(
         "Link",
         max_length=20,
         choices=SOCIAL_MEDIA_CHOICES,
@@ -81,7 +83,7 @@ class Course(models.Model):
 
 class Experience(models.Model):
     company = models.CharField("Company", max_length=150)
-    start_date = models.DateTimeField(
+    start_date = models.IntegerField(
         "Start date",
         default=current_year,
         validators=[
@@ -89,7 +91,7 @@ class Experience(models.Model):
             MaxValueValidator(current_year)
         ]
     )
-    end_date = models.DateTimeField(
+    end_date = models.IntegerField(
         "End date",
         default=current_year,
         validators=[
@@ -111,7 +113,7 @@ class Experience(models.Model):
 
 class Education(models.Model):
     education = models.CharField("Education", max_length=50)
-    start_date = models.DateTimeField(
+    start_date = models.IntegerField(
         "Start date",
         default=current_year,
         validators=[
@@ -119,7 +121,7 @@ class Education(models.Model):
             MaxValueValidator(current_year)
         ]
     )
-    end_date = models.DateTimeField(
+    end_date = models.IntegerField(
         "End date",
         default=current_year,
         validators=[
@@ -270,7 +272,7 @@ class Technology(models.Model):
         ("websocket", "WebSocket"),
     ]
 
-    project = models.ManyToManyField(Project)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, blank=True, null=True)
 
     technology = models.CharField(
         max_length=50,

@@ -9,7 +9,7 @@ class PersonDataAdmin(admin.ModelAdmin):
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ["email", "ddi", "cellphone", "social_media"]
+    list_display = ["email", "ddi", "cellphone", "link", "social_media_icon", "person_data"]
 
 
 @admin.register(Course)
@@ -34,7 +34,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Technology)
 class TechnologyAdmin(admin.ModelAdmin):
-    list_display = ["technology"]
+    list_display = ["technology", "project"]
 
 
 @admin.register(Document)
