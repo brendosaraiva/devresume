@@ -69,7 +69,7 @@ class Contact(models.Model):
 
 class Course(models.Model):
     course = models.CharField("Course", max_length=150)
-    duration = models.DurationField("Duration")
+    duration = models.IntegerField("Duration")
     education_institution = models.CharField("Education institution", max_length=30)
     minor = models.CharField("Minor", max_length=100)
 
@@ -112,7 +112,7 @@ class Experience(models.Model):
 
 
 class Education(models.Model):
-    education = models.CharField("Education", max_length=50)
+    education = models.CharField("Education", max_length=80)
     start_date = models.IntegerField(
         "Start date",
         default=current_year,
@@ -126,7 +126,7 @@ class Education(models.Model):
         default=current_year,
         validators=[
             MinValueValidator(1900),
-            MaxValueValidator(current_year)
+            MaxValueValidator(2300)
         ],
         blank=True,
         null=True
@@ -145,6 +145,15 @@ class Project(models.Model):
     project = models.CharField("Project", max_length=50)
     description = models.TextField("Description", blank=True)
     link = models.URLField("Link", max_length=500)
+    image = StdImageField(
+        "Image",
+        upload_to="img",
+        variations={
+            "thumbnail": (250, 250)
+        },
+        delete_orphans=True,
+        blank=True
+    )
 
     class Meta:
         verbose_name = "Project"
