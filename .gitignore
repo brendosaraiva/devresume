@@ -35,3 +35,4 @@ secrets.*
 .DS_Store
 Thumbs.db
 resume_bd.sqlite3
+media
