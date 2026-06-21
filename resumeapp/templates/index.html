@@ -1,6 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brendo Saraiva — Resume</title>
@@ -14,11 +16,9 @@
   <header>
     <div class="header-inner">
       <div class="profile-photo">
-        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-          <rect width="80" height="80" fill="#2a2a2a" rx="40" />
-          <circle cx="40" cy="30" r="16" fill="#555" />
-          <ellipse cx="40" cy="72" rx="28" ry="20" fill="#555" />
-        </svg>
+        {% for person in person_data %}
+          <img src="{{ person.image.url }}" class="imagem" alt="{{ person.image }}">
+        {% endfor %}
       </div>
       <nav>
         <a href="#person-data" class="active">PERSON DATA</a>
@@ -174,22 +174,7 @@
     © 2026 | Brendo Saraiva
   </footer>
 
-  <script>
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('nav a');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(link => link.classList.remove('active'));
-          const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
-          if (active) active.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-
-    sections.forEach(s => observer.observe(s));
-  </script>
+  <script src="{ static 'js/script.js'}"></script>
 
 </body>
 </html>
