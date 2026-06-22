@@ -47,16 +47,19 @@ header {
   padding: 0 1.5rem;
 }
 
-.imagem {
+.profile-photo {
   background-color: #aaa;
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   overflow: hidden;
-  position: relative;
+  position: sticky;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
 }
 
-.imagem img {
+.profile-photo img {
   position: absolute;
   bottom: 0;
   width: 100%;
