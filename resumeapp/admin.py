@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PersonData, Contact, Course, Experience, Education, Project, Technology, Document
+from .models import PersonData, Cellphone, SocialMedia, Contact, Course, Experience, Education, Project, Technology, Document
 
 
 @admin.register(PersonData)
@@ -7,9 +7,19 @@ class PersonDataAdmin(admin.ModelAdmin):
     list_display = ["image", "firstname", "lastname", "birthday"]
 
 
+@admin.register(Cellphone)
+class CellphoneAdmin(admin.ModelAdmin):
+    list_display = ["ddi", "cellphone"]
+
+
+@admin.register(SocialMedia)
+class SocialMediaAdmin(admin.ModelAdmin):
+    list_display = ["social_media_icon"]
+
+
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ["email", "ddi", "cellphone", "link", "social_media_icon", "person_data"]
+    list_display = ["email", "link", "person_data", "cellphone_id", "social_media_id"]
 
 
 @admin.register(Course)

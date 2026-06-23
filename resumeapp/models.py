@@ -38,9 +38,19 @@ class PersonData(models.Model):
         return self.firstname
 
 
-# Criar uma nova tabela para redes sociais e telefone (1FN)
-class Contact(models.Model):
-    person_data = models.ForeignKey(PersonData, on_delete=models.CASCADE)
+class Cellphone(models.Model):
+    ddi = models.CharField("DDI", max_length=3, blank=True, null=True)
+    cellphone = models.CharField("Number", max_length=13, blank=True, null=True)
+
+    class Meta:
+        verbose_name = "Cell Phone"
+        verbose_name_plural = "Cell Phones"
+
+    def __str__(self):
+        return self.cellphone
+
+
+class SocialMedia(models.Model):
     SOCIAL_MEDIA_CHOICES = [
         ('facebook', 'fa-facebook'),
         ('twitter', 'fa-twitter'),
@@ -48,16 +58,28 @@ class Contact(models.Model):
         ('instagram', 'fa-instagram'),
         ('github', 'fa-github'),
     ]
-    email = models.CharField("E-mail", max_length=50, blank=True, null=True)
-    ddi = models.CharField("DDI", max_length=3, blank=True, null=True)
-    cellphone = models.CharField("Number", max_length=13, blank=True, null=True)
-    link = models.CharField("Link rede social", max_length=60, blank=True, null=True)
+
     social_media_icon = models.CharField(
         "Link",
         max_length=20,
         choices=SOCIAL_MEDIA_CHOICES,
-        blank=True
     )
+
+    class Meta:
+        verbose_name = "Social Media"
+        verbose_name_plural = "Social Medias"
+
+    def __str__(self):
+        return self.social_media_icon
+
+
+# Criar uma nova tabela para redes sociais e telefone (1FN)
+class Contact(models.Model):
+    person_data = models.ForeignKey(PersonData, on_delete=models.CASCADE)
+    cellphone_id = models.ForeignKey(Cellphone, on_delete=models.CASCADE)
+    social_media_id = models.ForeignKey(SocialMedia, on_delete=models.CASCADE)
+    email = models.CharField("E-mail", max_length=50, blank=True, null=True)
+    link = models.CharField("Link rede social", max_length=60, blank=True, null=True)
 
     class Meta:
         verbose_name = "Contact"
