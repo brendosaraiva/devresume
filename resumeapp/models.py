@@ -52,41 +52,41 @@ class Cellphone(models.Model):
 
 class SocialMedia(models.Model):
     SOCIAL_MEDIA_CHOICES = [
-        ('facebook', 'fa-facebook'),
-        ('twitter', 'fa-twitter'),
-        ('linkedin', 'fa-linkedin'),
-        ('instagram', 'fa-instagram'),
-        ('github', 'fa-github'),
+        ('fa-facebook', 'facebook'),
+        ('fa-twitter', 'twitter'),
+        ('fa-linkedin', 'linkedin'),
+        ('fa-instagram', 'instagram'),
+        ('fa-github', 'github'),
     ]
 
     social_media_icon = models.CharField(
-        "Link",
+        "Ícone",
         max_length=20,
         choices=SOCIAL_MEDIA_CHOICES,
     )
+    link = models.CharField("Link rede social", max_length=60, blank=True, null=True)
 
     class Meta:
         verbose_name = "Social Media"
         verbose_name_plural = "Social Medias"
 
     def __str__(self):
-        return self.social_media_icon
+        return self.link
 
 
 # Criar uma nova tabela para redes sociais e telefone (1FN)
 class Contact(models.Model):
-    person_data = models.ForeignKey(PersonData, on_delete=models.CASCADE)
-    cellphone_id = models.ForeignKey(Cellphone, on_delete=models.CASCADE)
+    person_data_id = models.ForeignKey(PersonData, on_delete=models.CASCADE)
+    cellphone_id = models.ForeignKey(Cellphone, on_delete=models.CASCADE, blank=True, null=True)
     social_media_id = models.ForeignKey(SocialMedia, on_delete=models.CASCADE)
     email = models.CharField("E-mail", max_length=50, blank=True, null=True)
-    link = models.CharField("Link rede social", max_length=60, blank=True, null=True)
 
     class Meta:
         verbose_name = "Contact"
         verbose_name_plural = "Contacts"
 
     def __str__(self):
-        return self.email
+        return f"{self.person_data_id}"
 
 
 class Course(models.Model):

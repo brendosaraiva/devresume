@@ -2,14 +2,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brendo Saraiva — Resume</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="static/css/style.css" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
 </head>
 <body>
 
@@ -33,29 +32,43 @@
 
   <main>
 
+    <!-- Person data -->
     <section id="person-data">
       <h2 class="section-title">Person data</h2>
       <div class="card">
         <div class="person-grid">
-          <div class="field">
-            <label>Fullname</label>
-            <input type="text" />
+          <div class="data1">
+            {% for person in person_data %}
+              <div class="field">
+                <label>Fullname</label>
+                <input type="text" value="{{ person.firstname }} {{ person.lastname }}" />
+              </div>
+              {% for contact in contacts %}
+              <div class="field">
+                <label>E-mail</label>
+                <input type="email" value="{{ contact.email }}" />
+              </div>
+              {% endfor %}
+              <div class="field">
+                <label>Birthday</label>
+                <input type="text" value="{{ person.birthday }}" />
+              </div>
+            {% endfor %}
           </div>
-          <div class="field">
-            <label>E-mail</label>
-            <input type="email" />
-          </div>
-          <div class="field">
-            <label>Social media</label>
-            <input type="text" />
-          </div>
-          <div class="field">
-            <label>Birthday</label>
-            <input type="text" />
-          </div>
-          <div class="field">
-            <label>Telephone</label>
-            <input type="tel" />
+          <div class="data2">
+            {% for social_media in social_medias %}
+            <div class="field">
+              <label>{{ social_media.social_media_icon }}</label>
+              <i class="{{ social_media.social_media_icon }}"></i>
+              <input type="text" value="{{ social_media.link }}" />
+            </div>
+            {% endfor %}
+            {% for cell_phone in cellphones %}
+            <div class="field">
+              <label>Telephone</label>
+              <input type="tel" value="{{ cell_phone.ddi }} {{ cell_phone.cellphone }}" />
+            </div>
+            {% endfor %}
           </div>
         </div>
       </div>

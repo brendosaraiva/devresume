@@ -14,12 +14,12 @@ class CellphoneAdmin(admin.ModelAdmin):
 
 @admin.register(SocialMedia)
 class SocialMediaAdmin(admin.ModelAdmin):
-    list_display = ["social_media_icon"]
+    list_display = ["link", "social_media_icon"]
 
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ["email", "link", "person_data", "cellphone_id", "social_media_id"]
+    list_display = ["person_data_id","email", "cellphone_id", "social_media_id"]
 
 
 @admin.register(Course)
