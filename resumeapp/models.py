@@ -8,6 +8,10 @@ def current_year():
     return date.today().year
 
 
+def year_choices():
+    return [(r, r) for r in range(1980, current_year() + 1)]
+
+
 class PersonData(models.Model):
     image = StdImageField(
         "Photo",
@@ -52,19 +56,19 @@ class Cellphone(models.Model):
 
 class SocialMedia(models.Model):
     SOCIAL_MEDIA_CHOICES = [
-        ('fa-facebook', 'facebook'),
-        ('fa-twitter', 'twitter'),
-        ('fa-linkedin', 'linkedin'),
-        ('fa-instagram', 'instagram'),
-        ('fa-github', 'github'),
+        ('fa-brands fa-facebook', 'facebook'),
+        ('fa-brands fa-twitter', 'twitter'),
+        ('fa-brands fa-linkedin', 'linkedin'),
+        ('fa-brands fa-instagram', 'instagram'),
+        ('fa-brands fa-github', 'github'),
     ]
 
     social_media_icon = models.CharField(
         "Ícone",
-        max_length=20,
+        max_length=30,
         choices=SOCIAL_MEDIA_CHOICES,
     )
-    link = models.CharField("Link rede social", max_length=60, blank=True, null=True)
+    link = models.URLField("Link", null=True, blank=True)
 
     class Meta:
         verbose_name = "Social Media"
@@ -90,8 +94,24 @@ class Contact(models.Model):
 
 
 class Course(models.Model):
+    SITUATION_CHOICES = [
+        ('Concluded', 'concluded'),
+        ('In course', 'in course'),
+    ]
+
     course = models.CharField("Course", max_length=150)
+    year = models.IntegerField(
+        "Year",
+        choices=year_choices,
+        default=current_year,
+        validators=[
+            MinValueValidator(1980),
+            MaxValueValidator(current_year)
+        ],
+        blank=True,
+        null=True)
     duration = models.IntegerField("Duration")
+    situation = models.CharField("Situation", choices=SITUATION_CHOICES, blank=True, null=True)
     education_institution = models.CharField("Education institution", max_length=30)
     minor = models.CharField("Minor", max_length=100)
 

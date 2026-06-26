@@ -41,32 +41,36 @@
             {% for person in person_data %}
               <div class="field">
                 <label>Fullname</label>
-                <input type="text" value="{{ person.firstname }} {{ person.lastname }}" />
+                <input type="text" value="{{ person.firstname }} {{ person.lastname }}" readonly />
               </div>
               {% for contact in contacts %}
               <div class="field">
                 <label>E-mail</label>
-                <input type="email" value="{{ contact.email }}" />
+                <input type="email" value="{{ contact.email }}" readonly />
               </div>
               {% endfor %}
               <div class="field">
                 <label>Birthday</label>
-                <input type="text" value="{{ person.birthday }}" />
+                <input type="text" value="{{ person.birthday }}" readonly />
               </div>
             {% endfor %}
           </div>
           <div class="data2">
             {% for social_media in social_medias %}
             <div class="field">
-              <label>{{ social_media.social_media_icon }}</label>
-              <i class="{{ social_media.social_media_icon }}"></i>
-              <input type="text" value="{{ social_media.link }}" />
+              <label>{{ social_media.get_social_media_icon_display }}</label>
+
+              <!-- O link substitui o input e mantém o mesmo visual -->
+              <a href="{{ social_media.link }}" target="_blank" rel="noopener noreferrer" class="dark-input-link">
+                <i class="fa-brands {{ social_media.social_media_icon }}"></i>
+                <span>{{ social_media.link }}</span>
+              </a>
             </div>
             {% endfor %}
             {% for cell_phone in cellphones %}
             <div class="field">
               <label>Telephone</label>
-              <input type="tel" value="{{ cell_phone.ddi }} {{ cell_phone.cellphone }}" />
+              <input type="text" value="{{ cell_phone.ddi }} {{ cell_phone.cellphone }}" readonly />
             </div>
             {% endfor %}
           </div>
@@ -74,45 +78,31 @@
       </div>
     </section>
 
+    <!-- Experience -->
     <section id="experience">
       <h2 class="section-title">Experiences</h2>
+      {% for experience in experiences %}
       <div class="card">
         <p class="entry-header">
-          Company name <span>— 21/05/2026 to 25/05/2026</span>
+          {{ experience.company }} <span>— {{ experience.start_date }} to {{ experience.end_date }}</span>
         </p>
-        <p class="entry-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta felis mattis. Fusce tincidunt turpis tortor. Sed interdum augue ut elementum auctor. In euismod, ligula vel efficitur posuere, augue ex interdum lorem, quis finibus nunc turpis a dolor. Nullam vulputate est id eros dignissim sagittis.
-        </p>
-        <div class="more-btn"><button>More</button></div>
+        <p class="entry-body">{{ experience.activities }}</p>
       </div>
+      {% endfor %}
     </section>
 
+    <!-- Courses -->
     <section id="courses">
       <h2 class="section-title">Courses</h2>
-
+      {% for course in courses %}
       <div class="course-card">
-        <p class="course-name">Course name 1 <span>— 21/05/2026</span></p>
+        <p class="course-name">{{ course.course }} <span>— 21/05/2026</span></p>
         <div class="course-meta">
-          <span><strong>Duration:</strong> 6.0 h</span>
+          <span><strong>Duration:</strong> {{ course.duration }} h</span>
           <span><strong>Situation:</strong> concluded</span>
         </div>
       </div>
-
-      <div class="course-card">
-        <p class="course-name">Course name 2 <span>— 23/05/2025</span></p>
-        <div class="course-meta">
-          <span><strong>Duration:</strong> 6.0 h</span>
-          <span><strong>Situation:</strong> concluded</span>
-        </div>
-      </div>
-
-      <div class="course-card">
-        <p class="course-name">Course name 3 <span>— 21/04/2024</span></p>
-        <div class="course-meta">
-          <span><strong>Duration:</strong> 50 h</span>
-          <span><strong>Situation:</strong> concluded</span>
-        </div>
-      </div>
+      {% endfor %}
     </section>
 
     <section id="projects">

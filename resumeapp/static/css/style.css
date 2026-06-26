@@ -157,11 +157,29 @@ section {
   font-family: 'Inter', sans-serif;
   outline: none;
   transition: border-color 0.2s;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
 
 .field input:focus {
   border-color: rgba(255, 255, 255, 0.30);
+}
+
+/* To Social Media Itens */
+.dark-input-link {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 0.625rem;
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  font-size: 0.875rem;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-bottom: 20px;
+}
+
+.dark-input-link:focus {
+    border-color: rgba(255, 255, 255, 0.30);
 }
 
 /* ── Experience / Education ── */

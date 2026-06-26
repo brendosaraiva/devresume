@@ -19,12 +19,12 @@ class SocialMediaAdmin(admin.ModelAdmin):
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ["person_data_id","email", "cellphone_id", "social_media_id"]
+    list_display = ["person_data_id", "email", "cellphone_id", "social_media_id"]
 
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ["course", "duration", "education_institution", "minor"]
+    list_display = ["course", "year", "duration", "situation", "education_institution", "minor"]
 
 
 @admin.register(Experience)
